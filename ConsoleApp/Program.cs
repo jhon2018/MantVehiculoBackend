@@ -1,32 +1,31 @@
-﻿
-
-using System;
+﻿using System;
+using System.Threading.Tasks;
 using AccesoDatos.Models;
 using AccesoDatos.Operations;
 
 class Program
 {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
 
-        // Prueba de registro de usuario
+        // Prueba de registro de usuario (asíncrono)
         Usuario nuevoUsuario = new Usuario
         {
-            correo = "prueba@TranspCompany.jht",
-            clave_hash = "123456", // Se encriptará dentro del método
+            correo = "Jonathan@TranspCompany.jht",
+            clave_hash = "12345678", // Se encriptará dentro del método
             rol = "admin",
             activo = true,
             fecha_creacion = DateTime.Now
         };
 
-        bool registrado = usuarioDAO.RegistrarUsuario(nuevoUsuario);
+        bool registrado = await usuarioDAO.RegistrarUsuario(nuevoUsuario);
         Console.WriteLine(registrado
             ? "Usuario registrado correctamente."
             : "El usuario ya existe.");
 
-        // Prueba de login
-        Usuario? usuarioLogueado = usuarioDAO.Login("prueba@TranspCompany.jht", "123456");
+        // Prueba de login (asíncrono)
+        Usuario? usuarioLogueado = await usuarioDAO.Login("Jonathan@TranspCompany.jht", "12345678");
         if (usuarioLogueado != null)
         {
             Console.WriteLine($"Login exitoso. Bienvenido: {usuarioLogueado.correo}");

@@ -73,3 +73,4 @@ D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBacke
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\ConsoleApp\bin\Debug\net8.0\AccesoDatos.pdb
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\ConsoleApp\obj\Debug\net8.0\ConsoleApp.csproj.AssemblyReference.cache
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\ConsoleApp\obj\Debug\net8.0\ConsoleApp.csproj.Up2Date
+D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\ConsoleApp\obj\Debug\net8.0\ConsoleApp.sourcelink.json
