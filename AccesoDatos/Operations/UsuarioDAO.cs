@@ -51,6 +51,68 @@ namespace AccesoDatos.Operations
         }
 
 
+        public async Task<bool> ActualizarUsuario(Usuario usuario)
+        {
+            try
+            {
+                var usuarioExistente = await context.Usuario
+                    .FirstOrDefaultAsync(u => u.id_Usuario == usuario.id_Usuario);
+
+                if (usuarioExistente == null)
+                    return false;
+
+                usuarioExistente.correo = usuario.correo;
+                usuarioExistente.rol = usuario.rol;
+                usuarioExistente.activo = usuario.activo;
+                usuarioExistente.fecha_creacion = usuario.fecha_creacion;
+
+                if (!string.IsNullOrWhiteSpace(usuario.clave_hash))
+                    usuarioExistente.clave_hash = HashUtil.ObtenerMD5(usuario.clave_hash);
+
+                await context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ERROlR ActualizarUsuario: {ex.Message}");
+                return false;
+            }
+        }
+
+
+        public async Task<bool> EliminarUsuario(int id_Usuario)
+        {
+            try
+            {
+                var usuario = await context.Usuario.FirstOrDefaultAsync(u => u.id_Usuario == id_Usuario);
+                if (usuario == null)
+                    return false;
+
+                context.Usuario.Remove(usuario);
+                await context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ERROR EliminarUsuario: {ex.Message}");
+                return false;
+            }
+        }
+
+        public async Task<Usuario?> BuscarUsuario(int id_Usuario)
+        {
+            try
+            {
+                return await context.Usuario.FirstOrDefaultAsync(u => u.id_Usuario == id_Usuario);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ERROR BuscarUsuario: {ex.Message}");
+                return null;
+            }
+        }
+
+
 
 
 
