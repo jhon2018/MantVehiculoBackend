@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using AccesoDatos.Models;
 using AccesoDatos.Operations;
+using AccesoDatos.Plugins;
 
 class Program
 {
@@ -36,6 +37,7 @@ class Program
         //}
 
         //Console.ReadLine();
+        Console.WriteLine($"Hash local de '1234': {HashUtil.ObtenerMD5("1234")}");
 
 
 

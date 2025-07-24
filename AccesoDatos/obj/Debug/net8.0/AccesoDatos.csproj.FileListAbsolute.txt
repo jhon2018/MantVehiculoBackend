@@ -144,10 +144,10 @@ D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBacke
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\AccesoDatos\obj\Debug\net8.0\AccesoDatos.AssemblyInfoInputs.cache
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\AccesoDatos\obj\Debug\net8.0\AccesoDatos.AssemblyInfo.cs
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\AccesoDatos\obj\Debug\net8.0\AccesoDatos.csproj.CoreCompileInputs.cache
+D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\AccesoDatos\obj\Debug\net8.0\AccesoDatos.sourcelink.json
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\AccesoDatos\obj\Debug\net8.0\AccesoDa.B2719C34.Up2Date
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\AccesoDatos\obj\Debug\net8.0\AccesoDatos.dll
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\AccesoDatos\obj\Debug\net8.0\refint\AccesoDatos.dll
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\AccesoDatos\obj\Debug\net8.0\AccesoDatos.pdb
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\AccesoDatos\obj\Debug\net8.0\AccesoDatos.genruntimeconfig.cache
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\AccesoDatos\obj\Debug\net8.0\ref\AccesoDatos.dll
-D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\AccesoDatos\obj\Debug\net8.0\AccesoDatos.sourcelink.json

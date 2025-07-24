@@ -10,24 +10,19 @@ namespace AccesoDatos.Operations
     {
         private readonly db_abc1b8_jhtchecklist0725Context context = new db_abc1b8_jhtchecklist0725Context();
 
-        //public Usuario? Login(string correo, string password)
-        //{
-        //    string passwordHash = HashUtil.ObtenerMD5(password); // Encriptar la contraseña
-
-        //    var usuario = context.Usuario
-        //        .FirstOrDefault(u => u.correo == correo && u.clave_hash == passwordHash);
-
-        //    return usuario;
-        //}
+    
 
         public async Task<Usuario?> Login(string correo, string password)
         {
             string passwordHash = HashUtil.ObtenerMD5(password);
+            Console.WriteLine($"Intentando iniciar sesión con correo: {correo} y contraseña hash: {passwordHash} password:{password}");
 
             var usuario = await context.Usuario
-                .FirstOrDefaultAsync(u => u.correo == correo && u.clave_hash == passwordHash);
+          .Include(u => u.Personal) // 🔍 Asegura que cargue los datos personales
+          .FirstOrDefaultAsync(u => u.correo == correo && u.clave_hash == passwordHash);
 
             return usuario;
+
         }
 
 
@@ -40,8 +35,6 @@ namespace AccesoDatos.Operations
                 return false; // El usuario ya existe
             }
 
-            // Encripta la contraseña antes de guardar
-            usuario.clave_hash = HashUtil.ObtenerMD5(usuario.clave_hash);
 
             // Agrega el nuevo usuario de forma asincrónica
             await context.Usuario.AddAsync(usuario);
@@ -49,6 +42,31 @@ namespace AccesoDatos.Operations
 
             return true; // Registro exitoso
         }
+
+
+        public async Task<bool> RegistrarPersonal(Personal personal)
+        {
+            try
+            {
+                // Verifica que el usuario asociado exista
+                bool usuarioExiste = await context.Usuario.AnyAsync(u => u.id_Usuario == personal.id_Usuario);
+                if (!usuarioExiste)
+                    return false;
+
+                // Agrega el nuevo registro de personal
+                await context.Personal.AddAsync(personal);
+                await context.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ERROR RegistrarPersonal: {ex.Message}");
+                return false;
+            }
+        }
+
+
 
 
         public async Task<bool> ActualizarUsuario(Usuario usuario)
