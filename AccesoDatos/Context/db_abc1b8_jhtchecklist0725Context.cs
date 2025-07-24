@@ -95,9 +95,17 @@ public partial class db_abc1b8_jhtchecklist0725Context : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.id_UsuarioNavigation).WithMany(p => p.Personal)
-                .HasForeignKey(d => d.id_Usuario)
-                .HasConstraintName("FK__Personal__id_Usu__4AB81AF0");
+            //entity.HasOne(d => d.id_UsuarioNavigation).WithMany(p => p.Personal)
+            //    .HasForeignKey(d => d.id_Usuario)
+            //    .HasConstraintName("FK__Personal__id_Usu__4AB81AF0");
+
+            entity.HasOne(d => d.id_UsuarioNavigation)
+        .WithMany(p => p.Personal)
+        .HasForeignKey(d => d.id_Usuario)
+        .OnDelete(DeleteBehavior.Cascade)
+        .HasConstraintName("FK__Personal__id_Usu__4AB81AF0"); // ✅ Acción en cascada para eliminar Personal cuando se elimina Usuario
+
+
         });
 
         modelBuilder.Entity<Proveedor>(entity =>

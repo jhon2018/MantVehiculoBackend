@@ -74,16 +74,6 @@ namespace Web_Api.Controllers
         }
 
 
-        [HttpGet("buscar/{id_Usuario}")]
-        public async Task<IActionResult> Buscar(int id_Usuario)
-        {
-            var usuario = await _usuarioService.BuscarUsuario(id_Usuario);
-            if (usuario != null)
-            {
-                return Ok(usuario);
-            }
-            return NotFound(new { mensaje = "Usuario no encontrado" });
-        }
 
 
         [HttpDelete("eliminar/{id_Usuario}")]
@@ -107,6 +97,7 @@ namespace Web_Api.Controllers
             }
             return NotFound(new { mensaje = "Usuario no encontrado" });
         }
+
 
 
     }

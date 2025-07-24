@@ -96,10 +96,7 @@ var usuario = await _usuarioDAO.Login(loginDTO.correo, loginDTO.password);
         }
 
 
-        public async Task<Usuario?> BuscarUsuario(int id_Usuario)
-        {
-            return await _usuarioDAO.BuscarUsuario(id_Usuario);
-        }
+
 
         public async Task<bool> EliminarUsuario(int id_Usuario)
         {
