@@ -1,8 +1,24 @@
 [
   {
     "ContainingType": "Web_Api.Controllers.UsuarioController",
+    "Method": "actualizarPassword",
+    "RelativePath": "api/actualizarPassword",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "actualizarPasswordDTO",
+        "Type": "Web_Api.DTOs.ActualizarPasswordDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_Api.Controllers.UsuarioController",
     "Method": "Login",
-    "RelativePath": "api/autenticacion",
+    "RelativePath": "api/Autenticacion",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -18,7 +34,7 @@
   {
     "ContainingType": "Web_Api.Controllers.UsuarioController",
     "Method": "Registrar",
-    "RelativePath": "api/registrar",
+    "RelativePath": "api/Login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

@@ -85,7 +85,15 @@ var usuario = await _usuarioDAO.Login(loginDTO.correo, loginDTO.password);
         }
 
 
-
+        public async Task<bool> actualizarPassword(ActualizarPasswordDTO actualizarPasswordDTO)
+        {
+            var profesor = await _usuarioDAO.Login(actualizarPasswordDTO.correo, actualizarPasswordDTO.PasswordActual);
+            if (profesor == null)
+            {
+                return false; // Usuario no encontrado o contraseña incorrecta
+            }
+            return await _usuarioDAO.actualizarPassword(actualizarPasswordDTO.correo, actualizarPasswordDTO.PasswordNuevo);
+        }
 
 
         //

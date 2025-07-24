@@ -22,7 +22,7 @@ namespace Web_Api.Controllers
         }
 
 
-        [HttpPost("registrar")]
+        [HttpPost("Login")]
         public async Task<IActionResult> Registrar([FromBody] UsuarioRegistroDTO dto)
         {
             bool resultado = await _usuarioService.registrarUsuarioCompleto(dto);
@@ -30,7 +30,7 @@ namespace Web_Api.Controllers
         }
 
 
-        [HttpPost("autenticacion")]
+        [HttpPost("Autenticacion")]
         public async Task<IActionResult> Login([FromBody] LoginDTO loginDTO)
         {
             var usuario = await _usuarioService.login(loginDTO);
@@ -57,6 +57,21 @@ namespace Web_Api.Controllers
             }
         }
 
+
+        [HttpPatch("actualizarPassword")]// solo los campos que tu deseas
+        public async Task<IActionResult> actualizarPassword([FromBody] ActualizarPasswordDTO actualizarPasswordDTO)
+        {
+  
+            bool actualizado = await _usuarioService.actualizarPassword(actualizarPasswordDTO);
+
+            if (!actualizado)
+            {
+                return BadRequest(new { existe = false, mensaje = "Error al actualizar la contraseña. Verifique sus credenciales." });
+            }
+
+            return Ok(new { existe = true, mensaje = "Contraseña actualizada correctamente" });
+
+        }
 
 
     }

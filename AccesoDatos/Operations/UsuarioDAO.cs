@@ -131,7 +131,18 @@ namespace AccesoDatos.Operations
         }
 
 
+        public async Task<bool> actualizarPassword(string usuario, string nuevoPassword)
+        {
+            var user = context.Usuario.FirstOrDefault(p => p.correo == usuario);//buscar la primera coincidencia del usuario
 
+            if (user == null)
+            {
+                return false;
+            }
+            user.clave_hash = HashUtil.ObtenerMD5(nuevoPassword);
+            context.SaveChanges();
+            return true;
+        }
 
 
 

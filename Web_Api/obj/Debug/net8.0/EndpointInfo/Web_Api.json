@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/registrar": {
+    "/api/Login": {
       "post": {
         "tags": [
           "Usuario"
@@ -36,7 +36,7 @@
         }
       }
     },
-    "/api/autenticacion": {
+    "/api/Autenticacion": {
       "post": {
         "tags": [
           "Usuario"
@@ -66,10 +66,64 @@
           }
         }
       }
+    },
+    "/api/actualizarPassword": {
+      "patch": {
+        "tags": [
+          "Usuario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarPasswordDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarPasswordDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarPasswordDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "ActualizarPasswordDTO": {
+        "required": [
+          "correo",
+          "passwordActual",
+          "passwordNuevo"
+        ],
+        "type": "object",
+        "properties": {
+          "correo": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "passwordActual": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "passwordNuevo": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "LoginDTO": {
         "required": [
           "correo",
