@@ -102,10 +102,19 @@ namespace AccesoDatos.Operations
         {
             try
             {
-                var usuario = await context.Usuario.FirstOrDefaultAsync(u => u.id_Usuario == id_Usuario);
-                if (usuario == null)
-                    return false;
+                var usuario = await context.Usuario
+                    .Include(u => u.Personal) // incluir datos relacionados
+                    .FirstOrDefaultAsync(u => u.id_Usuario == id_Usuario);
 
+                if (usuario == null) return false;
+
+                // Eliminar primero los personales asociados
+                if (usuario.Personal.Any())
+                {
+                    context.Personal.RemoveRange(usuario.Personal);
+                }
+
+                // Luego eliminar el usuario
                 context.Usuario.Remove(usuario);
                 await context.SaveChangesAsync();
                 return true;
@@ -117,11 +126,16 @@ namespace AccesoDatos.Operations
             }
         }
 
+
         public async Task<Usuario?> BuscarUsuario(int id_Usuario)
         {
             try
             {
-                return await context.Usuario.FirstOrDefaultAsync(u => u.id_Usuario == id_Usuario);
+                return await context.Usuario
+                    .Include(u => u.Personal)
+                    .FirstOrDefaultAsync(u => u.id_Usuario == id_Usuario);
+                    //usuario.Personal.FirstOrDefault()?.nombre_completo
+
             }
             catch (Exception ex)
             {

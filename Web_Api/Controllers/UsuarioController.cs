@@ -74,5 +74,40 @@ namespace Web_Api.Controllers
         }
 
 
+        [HttpGet("buscar/{id_Usuario}")]
+        public async Task<IActionResult> Buscar(int id_Usuario)
+        {
+            var usuario = await _usuarioService.BuscarUsuario(id_Usuario);
+            if (usuario != null)
+            {
+                return Ok(usuario);
+            }
+            return NotFound(new { mensaje = "Usuario no encontrado" });
+        }
+
+
+        [HttpDelete("eliminar/{id_Usuario}")]
+        public async Task<IActionResult> Eliminar(int id_Usuario)
+        {
+            bool eliminado = await _usuarioService.EliminarUsuario(id_Usuario);
+            if (eliminado)
+            {
+                return Ok(new { mensaje = "Usuario eliminado correctamente" });
+            }
+            return NotFound(new { mensaje = "No se pudo eliminar el usuario" });
+        }
+
+        [HttpGet("UsuarioPersonal/{id_Usuario}")]
+        public async Task<IActionResult> ObtenerPerfil(int id_Usuario)
+        {
+            var perfil = await _usuarioService.ObtenerPerfil(id_Usuario);
+            if (perfil != null)
+            {
+                return Ok(perfil);
+            }
+            return NotFound(new { mensaje = "Usuario no encontrado" });
+        }
+
+
     }
 }

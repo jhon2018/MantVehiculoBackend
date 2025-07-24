@@ -96,7 +96,41 @@ var usuario = await _usuarioDAO.Login(loginDTO.correo, loginDTO.password);
         }
 
 
-        //
+        public async Task<Usuario?> BuscarUsuario(int id_Usuario)
+        {
+            return await _usuarioDAO.BuscarUsuario(id_Usuario);
+        }
 
+        public async Task<bool> EliminarUsuario(int id_Usuario)
+        {
+            return await _usuarioDAO.EliminarUsuario(id_Usuario);
+        }
+
+
+        public async Task<UsuarioDetalleDTO?> ObtenerPerfil(int id_Usuario)
+        {
+            var usuario = await _usuarioDAO.BuscarUsuario(id_Usuario);
+            if (usuario == null) return null;
+
+            var personal = usuario.Personal.FirstOrDefault();
+
+            return new UsuarioDetalleDTO
+            {
+                id_Usuario = usuario.id_Usuario,
+                correo = usuario.correo,
+                rol = usuario.rol,
+                activo = usuario.activo ?? false,
+                fecha_creacion = usuario.fecha_creacion?.ToString("dd/MM/yyyy") ?? "",
+                nombre_completo = personal?.nombre_completo ?? "",
+                dni = personal?.dni ?? "",
+                telefono = personal?.telefono ?? "",
+                cargo = personal?.cargo ?? ""
+            };
+        }
+
+
+
+
+        //
     }
 }
