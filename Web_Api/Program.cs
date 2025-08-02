@@ -98,12 +98,17 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowViteFrontend", policy =>
     {
-        policy.WithOrigins("http://localhost:5173") // origen del frontend
+        policy.WithOrigins("http://192.168.63.97:5173") // origen del frontend
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
 });
 
+//Configura Kestrel manualmente
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(7157); // Escucha en todas las IPs
+});
 
 
 
