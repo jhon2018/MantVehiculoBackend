@@ -1,7 +1,9 @@
-﻿using AccesoDatos.Context;
+﻿//ARCHIVO Operations/UsuarioDAO.cs
+using AccesoDatos.Context;
 using AccesoDatos.Models;
 using AccesoDatos.Plugins;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 
 namespace AccesoDatos.Operations
@@ -147,16 +149,33 @@ namespace AccesoDatos.Operations
 
         public async Task<bool> actualizarPassword(string usuario, string nuevoPassword)
         {
-            var user = context.Usuario.FirstOrDefault(p => p.correo == usuario);//buscar la primera coincidencia del usuario
+            var user =  context.Usuario.FirstOrDefault(p => p.correo == usuario);//buscar la primera coincidencia del usuario
 
             if (user == null)
             {
                 return false;
             }
             user.clave_hash = HashUtil.ObtenerMD5(nuevoPassword);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
             return true;
         }
+
+
+        public async Task<bool> ExisteDNI(string dni)
+        {
+            return await context.Personal.AnyAsync(p => p.dni == dni);
+        }
+
+        public async Task<List<Usuario>> ListarUsuarios()
+        {
+            return await context.Usuario.Include(u => u.Personal).ToListAsync();
+        }
+
+        public async Task<bool> ExisteCorreo(string correo)
+        {
+            return await context.Usuario.AnyAsync(u => u.correo == correo);
+        }
+
 
 
 

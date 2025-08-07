@@ -1,4 +1,5 @@
-﻿using AccesoDatos.Operations;
+﻿//ARCHIVO web_Api/Controllers/UsuarioController.cs
+using AccesoDatos.Operations;
 using AccesoDatos.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
@@ -104,6 +105,14 @@ namespace Web_Api.Controllers
                 return Ok(perfil);
             }
             return NotFound(new { mensaje = "Usuario no encontrado" });
+        }
+
+
+        [HttpGet("listar")]
+        public async Task<IActionResult> ListarUsuarios()
+        {
+            var lista = await _usuarioService.ListarUsuarios();
+            return Ok(lista);
         }
 
 

@@ -1,4 +1,6 @@
-﻿using AccesoDatos.Models;
+﻿//ARCHIVO Web_Api/Services/UsuarioService.cs
+
+using AccesoDatos.Models;
 using AccesoDatos.Operations;
 using AccesoDatos.Plugins;
 using Microsoft.IdentityModel.Tokens;
@@ -6,7 +8,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Web_Api.DTOs;
-//Web_Api/Service/
+
 
 namespace Web_Api.Services
 {
@@ -23,7 +25,13 @@ namespace Web_Api.Services
 
         public async Task<bool> registrarUsuarioCompleto(UsuarioRegistroDTO dto)
         {
-            var correo = new Usuario
+            bool correoExiste = await _usuarioDAO.ExisteCorreo(dto.correo);
+            if (correoExiste) return false;
+
+            bool dniExiste = await _usuarioDAO.ExisteDNI(dto.dni);
+            if (dniExiste) return false;
+
+            var usuario = new Usuario
             {
                 correo = dto.correo,
                 clave_hash = HashUtil.ObtenerMD5(dto.password),
@@ -32,12 +40,12 @@ namespace Web_Api.Services
                 fecha_creacion = DateTime.Now
             };
 
-            bool registrado = await _usuarioDAO.RegistrarUsuario(correo);
+            bool registrado = await _usuarioDAO.RegistrarUsuario(usuario);
             if (!registrado) return false;
 
             var personal = new Personal
             {
-                id_Usuario = correo.id_Usuario,
+                id_Usuario = usuario.id_Usuario,
                 nombre_completo = dto.nombre_completo,
                 dni = dto.dni,
                 telefono = dto.telefono,
@@ -46,6 +54,7 @@ namespace Web_Api.Services
 
             return await _usuarioDAO.RegistrarPersonal(personal);
         }
+
 
 
 
@@ -123,6 +132,26 @@ var usuario = await _usuarioDAO.Login(loginDTO.correo, loginDTO.password);
                 telefono = personal?.telefono ?? "",
                 cargo = personal?.cargo ?? ""
             };
+        }
+
+
+
+        public async Task<List<UsuarioDetalleDTO>> ListarUsuarios()
+        {
+            var usuarios = await _usuarioDAO.ListarUsuarios();
+
+            return usuarios.Select(u => new UsuarioDetalleDTO
+            {
+                id_Usuario = u.id_Usuario,
+                correo = u.correo,
+                rol = u.rol,
+                activo = u.activo ?? false,
+                fecha_creacion = u.fecha_creacion?.ToString("dd/MM/yyyy") ?? "",
+                nombre_completo = u.Personal.FirstOrDefault()?.nombre_completo ?? "",
+                dni = u.Personal.FirstOrDefault()?.dni ?? "",
+                telefono = u.Personal.FirstOrDefault()?.telefono ?? "",
+                cargo = u.Personal.FirstOrDefault()?.cargo ?? ""
+            }).ToList();
         }
 
 

@@ -49,6 +49,16 @@
   },
   {
     "ContainingType": "Web_Api.Controllers.UsuarioController",
+    "Method": "ListarUsuarios",
+    "RelativePath": "api/Usuario/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_Api.Controllers.UsuarioController",
     "Method": "Registrar",
     "RelativePath": "api/Usuario/Login",
     "HttpMethod": "POST",

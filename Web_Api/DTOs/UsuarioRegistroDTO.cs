@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿//ARCHIVO Web_Api/DTOs/UsuarioRegistroDTO.cs
+using System.ComponentModel.DataAnnotations;
 
 public class UsuarioRegistroDTO
 {

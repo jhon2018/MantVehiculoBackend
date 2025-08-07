@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Archivo Models/Usuario.cs
+using System;
 using System.Collections.Generic;
 
 namespace AccesoDatos.Models;

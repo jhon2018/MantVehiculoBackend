@@ -143,6 +143,18 @@
           }
         }
       }
+    },
+    "/api/Usuario/listar": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
