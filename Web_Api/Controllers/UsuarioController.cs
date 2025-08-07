@@ -6,11 +6,12 @@ using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 using Web_Api.Services;
 using Web_Api.DTOs;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Web_Api.Controllers
 {
-    [Route("api")]
-    [ApiController]
+    [Route("api/[controller]")]
+
     public class UsuarioController : ControllerBase
     {
 
@@ -29,33 +30,40 @@ namespace Web_Api.Controllers
             return resultado ? Ok("Usuario registrado correctamente") : BadRequest("Ya existe el usuario");
         }
 
-
+        [AllowAnonymous]
         [HttpPost("Autenticacion")]
         public async Task<IActionResult> Login([FromBody] LoginDTO loginDTO)
         {
-            var usuario = await _usuarioService.login(loginDTO);
-            Console.WriteLine($"Usuario 2 encontrado: {usuario?.correo ?? "No encontrado"}");
-            if (usuario != null)
+            try
             {
-                return Ok(new
+                var usuario = await _usuarioService.login(loginDTO);
+                if (usuario != null)
                 {
-                    exito = true,
-                    mensaje = "Credenciales correctas",
-                    token = usuario.Token,
-                    correo = new
+                    return Ok(new
                     {
-                        Usuario = usuario.correo,
-                        NombreCompleto = usuario.nombre_completo,
-                        Rol = usuario.rol
-
-                    }
-                });
+                        exito = true,
+                        mensaje = "Credenciales correctas",
+                        token = usuario.Token,
+                        correo = new
+                        {
+                            Usuario = usuario.correo,
+                            NombreCompleto = usuario.nombre_completo,
+                            Rol = usuario.rol
+                        }
+                    });
+                }
+                else
+                {
+                    return Unauthorized(new { exito = false, mensaje = "Credenciales incorrectas" });
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return Unauthorized(new { exito = false, mensaje = "Credenciales incorrectas" });
+                Console.WriteLine($"Error en Login: {ex.Message}");
+                return StatusCode(500, new { exito = false, mensaje = "Error interno del servidor" });
             }
         }
+
 
 
         [HttpPatch("actualizarPassword")]// solo los campos que tu deseas

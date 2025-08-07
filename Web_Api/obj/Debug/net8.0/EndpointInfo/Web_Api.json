@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Login": {
+    "/api/Usuario/Login": {
       "post": {
         "tags": [
           "Usuario"
@@ -36,7 +36,7 @@
         }
       }
     },
-    "/api/Autenticacion": {
+    "/api/Usuario/Autenticacion": {
       "post": {
         "tags": [
           "Usuario"
@@ -67,7 +67,7 @@
         }
       }
     },
-    "/api/actualizarPassword": {
+    "/api/Usuario/actualizarPassword": {
       "patch": {
         "tags": [
           "Usuario"
@@ -98,7 +98,7 @@
         }
       }
     },
-    "/api/eliminar/{id_Usuario}": {
+    "/api/Usuario/eliminar/{id_Usuario}": {
       "delete": {
         "tags": [
           "Usuario"
@@ -121,7 +121,7 @@
         }
       }
     },
-    "/api/UsuarioPersonal/{id_Usuario}": {
+    "/api/Usuario/UsuarioPersonal/{id_Usuario}": {
       "get": {
         "tags": [
           "Usuario"

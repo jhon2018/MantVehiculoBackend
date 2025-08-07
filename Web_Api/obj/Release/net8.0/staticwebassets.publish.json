@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "CGyJi4RFIoVZ1zErkgLbye08h1XE6JefknXNMZL/itU=",
+  "Source": "Web_Api",
+  "BasePath": "_content/Web_Api",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
