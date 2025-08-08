@@ -8,3 +8,9 @@
 # Build artifacts
 bin/
 obj/
+AccesoDatos/bin/
+AccesoDatos/obj/
+ConsoleApp/bin/
+ConsoleApp/obj/
+Web_Api/bin/
+Web_Api/obj/

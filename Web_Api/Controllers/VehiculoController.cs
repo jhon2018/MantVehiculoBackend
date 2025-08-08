@@ -18,19 +18,20 @@ public class VehiculoController : ControllerBase
     {
         bool registrado = await _vehiculoService.RegistrarVehiculo(dto);
         if (registrado)
-            return Ok(new { mensaje = "Vehículo registrado correctamente" });
+            return Ok(new { existe = true, mensaje = "Vehículo registrado correctamente" });
         else
-            return BadRequest(new { mensaje = "Ya existe un vehículo con esa placa" });
+            return BadRequest(new { existe = false, mensaje = "Ya existe un vehículo con esa placa" });
     }
 
     [HttpPut("Actualizar/{idVehiculo}")]
     public async Task<IActionResult> EditarVehiculo(int idVehiculo, [FromBody] VehiculoEdicionDTO dto)
     {
         var resultado = await _vehiculoService.EditarVehiculo(idVehiculo, dto);
-        if (!resultado)
-            return NotFound("Vehículo no encontrado o no se pudo actualizar.");
+        if (!resultado) { 
+            return NotFound(new { existe = false, mensaje = "Vehículo no encontrado o no se pudo actualizar." });
+        }
+        return Ok(new { existe = true, mensaje = "Vehículo actualizado correctamente." });
 
-        return Ok("Vehículo actualizado correctamente.");
     }
 
 
