@@ -31,4 +31,38 @@ public class VehiculoService
         return await _vehiculoDAO.RegistrarVehiculo(vehiculo);
     }
 
+
+    public async Task<bool> EditarVehiculo(int idVehiculo, VehiculoEdicionDTO dto)
+    {
+        var vehiculoExistente = await _vehiculoDAO.ObtenerPorId(idVehiculo);
+        if (vehiculoExistente == null)
+            return false;
+
+        vehiculoExistente.placa = dto.placa;
+        vehiculoExistente.marca = dto.marca;
+        vehiculoExistente.modelo = dto.modelo;
+        vehiculoExistente.fecha_compra = dto.fecha_compra.HasValue
+            ? DateOnly.FromDateTime(dto.fecha_compra.Value)
+            : vehiculoExistente.fecha_compra;
+
+        return await _vehiculoDAO.ActualizarVehiculo(vehiculoExistente);
+    }
+
+
+
+    public async Task<List<VehiculoListadoDTO>> ListarVehiculos()
+    {
+        var lista = await _vehiculoDAO.ListarVehiculos();
+
+        return lista.Select(v => new VehiculoListadoDTO
+        {
+            placa = v.placa,
+            marca = v.marca,
+            modelo = v.modelo,
+            fecha_compra = v.fecha_compra?.ToString("yyyy-MM-dd") ?? ""
+        }).ToList();
+    }
+
+
+
 }

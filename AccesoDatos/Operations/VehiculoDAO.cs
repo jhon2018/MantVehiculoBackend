@@ -17,4 +17,44 @@ public class VehiculoDAO
         await context.SaveChangesAsync();
         return true;
     }
+
+
+    //public async Task<bool> ActualizarVehiculo(Vehiculo vehiculo) //ACTUALIZAR POR ID Y PLACA busca esto en service  return await _vehiculoDAO.ActualizarVehiculo(vehiculoExistente);
+    //{
+    //    var existente = await context.Vehiculo.FirstOrDefaultAsync(v => v.placa == vehiculo.placa);
+    //    if (existente == null) return false;
+
+    //    existente.marca = vehiculo.marca;
+    //    existente.modelo = vehiculo.modelo;
+    //    existente.fecha_compra = vehiculo.fecha_compra;
+
+    //    await context.SaveChangesAsync();
+    //    return true;
+    //}
+
+    public async Task<bool> ActualizarVehiculo(Vehiculo vehiculo)
+    {
+        context.Vehiculo.Update(vehiculo);
+        await context.SaveChangesAsync();
+        return true;
+    }
+
+
+    public async Task<Vehiculo?> ObtenerPorPlaca(string placa)
+    {
+        return await context.Vehiculo.FirstOrDefaultAsync(v => v.placa == placa);
+    }
+
+    public async Task<Vehiculo?> ObtenerPorId(int idVehiculo)
+    {
+        return await context.Vehiculo.FirstOrDefaultAsync(v => v.id_Vehiculo == idVehiculo);
+    }
+
+
+    public async Task<List<Vehiculo>> ListarVehiculos()
+    {
+        return await context.Vehiculo.ToListAsync();
+    }
+
+
 }

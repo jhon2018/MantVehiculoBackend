@@ -91,6 +91,37 @@
   },
   {
     "ContainingType": "VehiculoController",
+    "Method": "EditarVehiculo",
+    "RelativePath": "api/Vehiculo/Actualizar/{idVehiculo}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idVehiculo",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Web_Api.DTOs.VehiculoEdicionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehiculoController",
+    "Method": "ListarVehiculos",
+    "RelativePath": "api/Vehiculo/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehiculoController",
     "Method": "RegistrarVehiculo",
     "RelativePath": "api/Vehiculo/registrar",
     "HttpMethod": "POST",
