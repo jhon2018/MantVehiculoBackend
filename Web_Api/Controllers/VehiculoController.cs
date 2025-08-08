@@ -42,4 +42,13 @@ public class VehiculoController : ControllerBase
         return Ok(lista);
     }
 
+
+    [HttpGet("listarPaginas")]
+    public async Task<IActionResult> ListarVehiculos([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+    {
+        var resultado = await _vehiculoService.ListarVehiculosPaginado(page, pageSize);
+        return Ok(resultado);
+    }
+
+
 }

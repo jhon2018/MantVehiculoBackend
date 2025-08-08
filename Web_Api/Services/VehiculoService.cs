@@ -63,6 +63,28 @@ public class VehiculoService
         }).ToList();
     }
 
+    public async Task<VehiculoListadoPaginadoDTO> ListarVehiculosPaginado(int page, int pageSize)
+    {
+        var total = await _vehiculoDAO.ContarVehiculos();
+        var vehiculos = await _vehiculoDAO.ListarVehiculosPaginado(page, pageSize);
+
+        var listaDTO = vehiculos.Select(v => new VehiculoListadoDTO
+        {
+            id_Vehiculo = v.id_Vehiculo,
+            placa = v.placa,
+            marca = v.marca,
+            modelo = v.modelo,
+            fecha_compra = v.fecha_compra?.ToString("yyyy-MM-dd") ?? ""
+        }).ToList();
+
+        return new VehiculoListadoPaginadoDTO
+        {
+            totalRegistros = total,
+            paginaActual = page,
+            registrosPorPagina = pageSize,
+            vehiculos = listaDTO
+        };
+    }
 
 
 }

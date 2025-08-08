@@ -122,6 +122,27 @@
   },
   {
     "ContainingType": "VehiculoController",
+    "Method": "ListarVehiculos",
+    "RelativePath": "api/Vehiculo/listarPaginas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehiculoController",
     "Method": "RegistrarVehiculo",
     "RelativePath": "api/Vehiculo/registrar",
     "HttpMethod": "POST",

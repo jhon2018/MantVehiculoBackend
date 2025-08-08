@@ -57,4 +57,19 @@ public class VehiculoDAO
     }
 
 
+    public async Task<int> ContarVehiculos()
+    {
+        return await context.Vehiculo.CountAsync();
+    }
+
+    public async Task<List<Vehiculo>> ListarVehiculosPaginado(int page, int pageSize)
+    {
+        return await context.Vehiculo
+            .OrderBy(v => v.id_Vehiculo)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+    }
+
+
 }
