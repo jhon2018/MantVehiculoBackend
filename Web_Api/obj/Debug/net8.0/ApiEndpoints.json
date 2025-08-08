@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "Web_Api.Controllers.ConductorController",
+    "Method": "RegistrarConductor",
+    "RelativePath": "api/Conductor/registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Web_Api.DTOs.ConductorRegistroDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Web_Api.Controllers.UsuarioController",
     "Method": "actualizarPassword",
     "RelativePath": "api/Usuario/actualizarPassword",

@@ -1,4 +1,5 @@
-﻿using System;
+﻿// ARCHIVO AccesoDatos/Models/Conductor.cs
+using System;
 using System.Collections.Generic;
 
 namespace AccesoDatos.Models;

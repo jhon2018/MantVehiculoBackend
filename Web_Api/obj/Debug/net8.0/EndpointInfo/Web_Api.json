@@ -5,6 +5,37 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Conductor/registrar": {
+      "post": {
+        "tags": [
+          "Conductor"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConductorRegistroDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConductorRegistroDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConductorRegistroDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Usuario/Login": {
       "post": {
         "tags": [
@@ -295,6 +326,20 @@
           "passwordNuevo": {
             "minLength": 1,
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConductorRegistroDTO": {
+        "type": "object",
+        "properties": {
+          "id_Personal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "licencia": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
