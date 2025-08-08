@@ -1,2 +1,10 @@
 .vs/
-Web_Api/obj
+/AccesoDatos/bin/
+/AccesoDatos/obj/
+/ConsoleApp/bin/
+/ConsoleApp/obj/
+/Web_Api/bin/
+/Web_Api/obj/
+# Build artifacts
+bin/
+obj/

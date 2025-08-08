@@ -12,6 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
 // El sistema está intentando crear el UsuarioController,registrar el servicio manualmente
 builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<UsuarioDAO>();
+builder.Services.AddScoped<VehiculoService>();
+builder.Services.AddScoped<VehiculoDAO>();
+
 
 
 builder.Services.AddControllers();
