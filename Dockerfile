@@ -1,25 +1,20 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-WORKDIR /app
-EXPOSE 5000
-
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
-COPY . ./
-RUN dotnet publish "Web_Api.csproj" -c Release -o /app/publish
-
-FROM base AS final
-WORKDIR /app
-COPY --from=build /app/publish .
-CMD ["dotnet", "Web_Api.dll"]
+﻿# Etapa base para runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 EXPOSE 5000
 
+# Etapa de build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY . ./
+
+# Copiamos solo el proyecto necesario
+COPY "API web/" "./API web/"
+WORKDIR "/src/API web"
+
+# Publicamos el proyecto
 RUN dotnet publish "Web_Api.csproj" -c Release -o /app/publish
 
+# Etapa final: runtime
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
