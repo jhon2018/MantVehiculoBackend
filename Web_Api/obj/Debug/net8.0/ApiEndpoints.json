@@ -1,5 +1,68 @@
 [
   {
+    "ContainingType": "Web_Api.MockData.ChecklistController",
+    "Method": "Get",
+    "RelativePath": "api/Checklist",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_Api.Controllers.ConductorController",
+    "Method": "AsignarConductor",
+    "RelativePath": "api/Conductor/asignar-conductor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Web_Api.DTOs.AsignarConductorDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_Api.Controllers.ConductorController",
+    "Method": "EditarConductor",
+    "RelativePath": "api/Conductor/editar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Web_Api.DTOs.ConductorEdicionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_Api.Controllers.ConductorController",
+    "Method": "ListarConductores",
+    "RelativePath": "api/Conductor/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Web_Api.Controllers.ConductorController",
     "Method": "RegistrarConductor",
     "RelativePath": "api/Conductor/registrar",

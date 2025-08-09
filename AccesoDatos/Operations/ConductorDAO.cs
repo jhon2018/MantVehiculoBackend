@@ -3,6 +3,7 @@ using AccesoDatos.Context;
 using AccesoDatos.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 public class ConductorDAO
 {
     private readonly db_abc1b8_jhtchecklist0725Context context = new db_abc1b8_jhtchecklist0725Context();
@@ -34,6 +35,33 @@ public class ConductorDAO
     {
         return await context.Conductor
             .FirstOrDefaultAsync(c => c.id_Conductor == idConductor);
+    }
+
+    public async Task<bool> EditarConductorAsync(Conductor dto)
+    {
+        var conductor = await context.Conductor.FindAsync(dto.id_Conductor);
+        if (conductor == null) return false;
+
+        conductor.id_Personal = dto.id_Personal;
+        conductor.licencia = dto.licencia;
+
+        await context.SaveChangesAsync();
+        return true;
+    }
+
+
+    public async Task<int> ContarConductores()
+    {
+        return await context.Conductor.CountAsync();
+    }
+
+    public async Task<List<Conductor>> ListarConductorPaginado(int page, int pageSize)
+    {
+        return await context.Conductor
+            .OrderBy(v => v.id_Conductor)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
     }
 
 

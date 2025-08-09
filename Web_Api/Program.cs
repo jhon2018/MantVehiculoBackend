@@ -27,6 +27,7 @@ builder.Services.AddScoped<VehiculoDAO>();
 builder.Services.AddScoped<ConductorService>();
 builder.Services.AddScoped<ConductorDAO>();
 //builder.Services.AddScoped<PersonalService>();
+builder.Services.AddScoped<MantenimientoDAO>();
 
 
 

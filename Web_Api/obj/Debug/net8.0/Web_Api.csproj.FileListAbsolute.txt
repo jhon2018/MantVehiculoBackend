@@ -1,8 +1,7 @@
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\AccesoDatos.deps.json
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\AccesoDatos.runtimeconfig.json
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\AccesoDatos.exe
-D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\web.config
-D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\appsettings.Development.json
+D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\MockData\checklists.json
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\appsettings.json
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\Web_Api.staticwebassets.endpoints.json
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\Web_Api.exe
@@ -39,6 +38,7 @@ D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBacke
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\Microsoft.OpenApi.dll
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\JONATHAN\Proyectos\Piloto\MantenimientosVehiculos\MantenimientoVehiculosBackend\Web_Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll

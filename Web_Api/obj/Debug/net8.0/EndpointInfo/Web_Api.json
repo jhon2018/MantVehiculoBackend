@@ -5,6 +5,18 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Checklist": {
+      "get": {
+        "tags": [
+          "Checklist"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Conductor/registrar": {
       "post": {
         "tags": [
@@ -60,6 +72,100 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Conductor/asignar-conductor": {
+      "post": {
+        "tags": [
+          "Conductor"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AsignarConductorDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AsignarConductorDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AsignarConductorDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Conductor/editar": {
+      "put": {
+        "tags": [
+          "Conductor"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConductorEdicionDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConductorEdicionDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConductorEdicionDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Conductor/listar": {
+      "get": {
+        "tags": [
+          "Conductor"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 20
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -357,6 +463,38 @@
           "passwordNuevo": {
             "minLength": 1,
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AsignarConductorDTO": {
+        "type": "object",
+        "properties": {
+          "id_mantenimiento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "id_conductor": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConductorEdicionDTO": {
+        "type": "object",
+        "properties": {
+          "id_Conductor": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "id_Personal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "licencia": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
