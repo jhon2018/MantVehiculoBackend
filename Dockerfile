@@ -7,9 +7,9 @@ EXPOSE 5000
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copiamos solo el proyecto necesario
-COPY "API web/" "./API web/"
-WORKDIR "/src/API web"
+# Copiamos solo la carpeta del proyecto
+COPY Web_Api/ ./Web_Api/
+WORKDIR /src/Web_Api
 
 # Publicamos el proyecto
 RUN dotnet publish "Web_Api.csproj" -c Release -o /app/publish
