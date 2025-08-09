@@ -1,0 +1,17 @@
+﻿[
+  {
+    "Id": 1,
+    "Nombre": "Revisión de frenos",
+    "Completado": false
+  },
+  {
+    "Id": 2,
+    "Nombre": "Cambio de aceite",
+    "Completado": true
+  },
+  {
+    "Id": 3,
+    "Nombre": "Verificación de luces",
+    "Completado": false
+  }
+]

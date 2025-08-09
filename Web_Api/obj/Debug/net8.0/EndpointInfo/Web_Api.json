@@ -36,6 +36,37 @@
         }
       }
     },
+    "/api/Conductor/validar-licencia": {
+      "post": {
+        "tags": [
+          "Conductor"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidarLicenciaDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidarLicenciaDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidarLicenciaDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Usuario/Login": {
       "post": {
         "tags": [
@@ -401,6 +432,16 @@
           "cargo": {
             "minLength": 1,
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValidarLicenciaDTO": {
+        "type": "object",
+        "properties": {
+          "idConductor": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false

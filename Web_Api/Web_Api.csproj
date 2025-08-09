@@ -15,4 +15,11 @@
     <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj" />
   </ItemGroup>
 
+<ItemGroup>
+  <Content Include="MockData\checklists.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+</ItemGroup>
+
+
 </Project>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Web_Api.DTOs;
+using static ConductorDAO;
 
 namespace Web_Api.Controllers
 {
@@ -32,7 +33,18 @@ public async Task<IActionResult> RegistrarConductor([FromBody] ConductorRegistro
 
         }
 
-}
 
-    
+
+        [HttpPost("validar-licencia")]
+        public async Task<IActionResult> ValidarLicencia([FromBody] ValidarLicenciaDTO dto)
+        {
+            bool vigente = await _service.LicenciaVigenteAsync(dto.IdConductor);
+            return Ok(new { licenciaVigente = vigente });
+        }
+
+
+
+
+    }
+
 }

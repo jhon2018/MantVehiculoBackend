@@ -16,6 +16,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Web_Api.Controllers.ConductorController",
+    "Method": "ValidarLicencia",
+    "RelativePath": "api/Conductor/validar-licencia",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Web_Api.DTOs.ValidarLicenciaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Web_Api.Controllers.UsuarioController",
     "Method": "actualizarPassword",
     "RelativePath": "api/Usuario/actualizarPassword",

@@ -30,4 +30,12 @@ public class ConductorDAO
         }
     }
 
+    public async Task<Conductor> ObtenerConductorPorIdAsync(int idConductor)
+    {
+        return await context.Conductor
+            .FirstOrDefaultAsync(c => c.id_Conductor == idConductor);
+    }
+
+
+
 }

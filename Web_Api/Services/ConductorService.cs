@@ -25,4 +25,15 @@ public class ConductorService
        return await _ConductorDAO.RegistrarConductorAsync(entidad);
     }
 
+
+    public async Task<bool> LicenciaVigenteAsync(int idConductor)
+    {
+        var conductor = await _ConductorDAO.ObtenerConductorPorIdAsync(idConductor);
+        if (conductor == null || string.IsNullOrEmpty(conductor.licencia))
+            return false;
+
+        return true;
+    }
+
+
 }

@@ -9,6 +9,16 @@ using Web_Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+//RENDER
+var contentRoot = builder.Environment.ContentRootPath;
+//var jsonPath = Path.Combine(contentRoot, "checklists.json");
+var jsonPath = Path.Combine(contentRoot, "MockData", "checklists.json");
+var jsonString = File.ReadAllText(jsonPath);
+// luego lo deserializas con JsonConvert o System.Text.Json
+
+
+
 // El sistema está intentando crear el UsuarioController,registrar el servicio manualmente
 builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<UsuarioDAO>();
