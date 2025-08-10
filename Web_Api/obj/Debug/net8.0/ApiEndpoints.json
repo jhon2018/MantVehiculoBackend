@@ -95,6 +95,176 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Web_Api.Controllers.DetalleReparacionController",
+    "Method": "Editar",
+    "RelativePath": "api/DetalleReparacion/editar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Web_Api.DTOs.DetalleReparacionEdicionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_Api.Controllers.DetalleReparacionController",
+    "Method": "ListarDetallePorTipo",
+    "RelativePath": "api/DetalleReparacion/listar-por-tipo/{id_tipoReparacion}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id_tipoReparacion",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_Api.Controllers.DetalleReparacionController",
+    "Method": "RegistrarDetalleReparacion",
+    "RelativePath": "api/DetalleReparacion/registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Web_Api.DTOs.DetalleReparacionRegistroDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_Api.Controllers.ProveedorController",
+    "Method": "EditarProveedor",
+    "RelativePath": "api/Proveedor/Actualizar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Web_Api.DTOs.ProveedorEdicionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_Api.Controllers.ProveedorController",
+    "Method": "BuscarProveedor",
+    "RelativePath": "api/Proveedor/buscar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filtro",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_Api.Controllers.ProveedorController",
+    "Method": "ListarProveedorPaginado",
+    "RelativePath": "api/Proveedor/listar-paginado",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_Api.Controllers.ProveedorController",
+    "Method": "RegistrarProveedor",
+    "RelativePath": "api/Proveedor/Registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Web_Api.DTOs.ProveedorRegistroDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_Api.Controllers.TipoReparacionController",
+    "Method": "Editar",
+    "RelativePath": "api/TipoReparacion/editar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Web_Api.DTOs.TipoReparacionEdicionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_Api.Controllers.TipoReparacionController",
+    "Method": "ListarTipoReparacionPaginado",
+    "RelativePath": "api/TipoReparacion/listar-paginado",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_Api.Controllers.TipoReparacionController",
+    "Method": "RegistrarTipoReparacion",
+    "RelativePath": "api/TipoReparacion/registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Web_Api.DTOs.TipoReparacionRegistroDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Web_Api.Controllers.UsuarioController",
     "Method": "actualizarPassword",
     "RelativePath": "api/Usuario/actualizarPassword",

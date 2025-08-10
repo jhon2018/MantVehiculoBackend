@@ -1,9 +1,11 @@
-﻿using AccesoDatos.Operations;
+﻿using AccesoDatos.Models;
+using AccesoDatos.Operations;
 using AccesoDatos.Plugins;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using Web_Api.Controllers;
 using Web_Api.Services;
 //using WebApi.Services;
 
@@ -26,8 +28,14 @@ builder.Services.AddScoped<VehiculoService>();
 builder.Services.AddScoped<VehiculoDAO>();
 builder.Services.AddScoped<ConductorService>();
 builder.Services.AddScoped<ConductorDAO>();
-//builder.Services.AddScoped<PersonalService>();
+builder.Services.AddScoped<ProveedorService>();
+builder.Services.AddScoped<ProveedorDAO>();
 builder.Services.AddScoped<MantenimientoDAO>();
+builder.Services.AddScoped<TipoReparacionService>();
+builder.Services.AddScoped<TipoReparacionDAO>();
+builder.Services.AddScoped<DetalleReparacionDAO>();
+builder.Services.AddScoped<DetalleReparacionService>();
+
 
 
 

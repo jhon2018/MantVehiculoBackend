@@ -1,4 +1,5 @@
-﻿using System;
+﻿// ARCHIVO AccesoDatos/Models/detalleReparacion.cs
+using System;
 using System.Collections.Generic;
 
 namespace AccesoDatos.Models;
