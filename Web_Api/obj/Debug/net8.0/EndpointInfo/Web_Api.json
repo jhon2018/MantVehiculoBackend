@@ -258,6 +258,69 @@
         }
       }
     },
+    "/api/Mantenimiento/registrar": {
+      "post": {
+        "tags": [
+          "Mantenimiento"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MantenimientoDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MantenimientoDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MantenimientoDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Mantenimiento/upload-foto": {
+      "post": {
+        "tags": [
+          "Mantenimiento"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "foto": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "foto": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Proveedor/Registrar": {
       "post": {
         "tags": [
@@ -467,8 +530,8 @@
         }
       }
     },
-    "/api/Usuario/Login": {
-      "post": {
+    "/api/Usuario/Registrar": {
+      "put": {
         "tags": [
           "Usuario"
         ],
@@ -529,7 +592,7 @@
         }
       }
     },
-    "/api/Usuario/actualizarPassword": {
+    "/api/Usuario/ActualizarPassword": {
       "patch": {
         "tags": [
           "Usuario"
@@ -560,7 +623,7 @@
         }
       }
     },
-    "/api/Usuario/eliminar/{id_Usuario}": {
+    "/api/Usuario/Eliminar/{id_Usuario}": {
       "delete": {
         "tags": [
           "Usuario"
@@ -606,7 +669,7 @@
         }
       }
     },
-    "/api/Usuario/listar": {
+    "/api/Usuario/Listar": {
       "get": {
         "tags": [
           "Usuario"
@@ -853,6 +916,40 @@
           "password": {
             "minLength": 1,
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MantenimientoDTO": {
+        "type": "object",
+        "properties": {
+          "id_Vehiculo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "id_Conductor": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "id_Proveedor": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "id_detalleReparacion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fecha_Mantenimiento": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "observacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "url_foto": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

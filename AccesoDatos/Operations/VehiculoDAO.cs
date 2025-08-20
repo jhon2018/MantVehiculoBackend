@@ -34,10 +34,31 @@ public class VehiculoDAO
 
     public async Task<bool> ActualizarVehiculo(Vehiculo vehiculo)
     {
-        context.Vehiculo.Update(vehiculo);
-        await context.SaveChangesAsync();
-        return true;
+        var existe = await context.Vehiculo.FindAsync(vehiculo.id_Vehiculo);
+        if (existe == null)
+        {
+            return false; // No existe el vehículo
+        }
+
+ 
+
+        // ✅ Actualiza solo los campos permitidos
+        existe.marca = vehiculo.marca;
+        existe.modelo = vehiculo.modelo;
+        existe.fecha_compra = vehiculo.fecha_compra;
+
+        try
+        {
+            await context.SaveChangesAsync();
+            return true;
+        }
+        catch
+        {
+            return false; // Error al guardar
+        }
     }
+
+
 
 
     public async Task<Vehiculo?> ObtenerPorPlaca(string placa)

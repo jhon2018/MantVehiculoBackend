@@ -24,7 +24,7 @@ namespace Web_Api.Controllers
         }
 
 
-        [HttpPost("Login")]
+        [HttpPut("Registrar")]
         public async Task<IActionResult> Registrar([FromBody] UsuarioRegistroDTO dto)
         {
             bool resultado = await _usuarioService.registrarUsuarioCompleto(dto);
@@ -67,7 +67,7 @@ namespace Web_Api.Controllers
 
 
 
-        [HttpPatch("actualizarPassword")]// solo los campos que tu deseas
+        [HttpPatch("ActualizarPassword")]// solo los campos que tu deseas
         public async Task<IActionResult> actualizarPassword([FromBody] ActualizarPasswordDTO actualizarPasswordDTO)
         {
   
@@ -85,7 +85,7 @@ namespace Web_Api.Controllers
 
 
 
-        [HttpDelete("eliminar/{id_Usuario}")]
+        [HttpDelete("Eliminar/{id_Usuario}")]
         public async Task<IActionResult> Eliminar(int id_Usuario)
         {
             bool eliminado = await _usuarioService.EliminarUsuario(id_Usuario);
@@ -108,7 +108,7 @@ namespace Web_Api.Controllers
         }
 
 
-        [HttpGet("listar")]
+        [HttpGet("Listar")]
         public async Task<IActionResult> ListarUsuarios()
         {
             var lista = await _usuarioService.ListarUsuarios();

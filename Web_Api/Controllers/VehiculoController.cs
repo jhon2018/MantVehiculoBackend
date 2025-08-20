@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Web_Api.DTOs;
 using Web_Api.Services;
 
@@ -26,12 +27,33 @@ public class VehiculoController : ControllerBase
     [HttpPut("Actualizar/{idVehiculo}")]
     public async Task<IActionResult> EditarVehiculo(int idVehiculo, [FromBody] VehiculoEdicionDTO dto)
     {
-        var resultado = await _vehiculoService.EditarVehiculo(idVehiculo, dto);
-        if (!resultado) { 
-            return NotFound(new { existe = false, mensaje = "Vehículo no encontrado o no se pudo actualizar." });
-        }
-        return Ok(new { existe = true, mensaje = "Vehículo actualizado correctamente." });
+        if (!ModelState.IsValid)
+        {
+            var errores = ModelState
+                .Where(e => e.Value.Errors.Count > 0)
+                .Select(e => new {
+                    campo = e.Key,
+                    mensajes = e.Value.Errors.Select(err => err.ErrorMessage)
+                });
 
+            return BadRequest(new { errores });
+        }
+
+        var resultado = await _vehiculoService.EditarVehiculo(idVehiculo, dto);
+        if (!resultado)
+        {
+            return NotFound(new
+            {
+                existe = false,
+                mensaje = "Vehículo no encontrado o no se pudo actualizar por placa ya registrada."
+            });
+        }
+
+        return Ok(new
+        {
+            existe = true,
+            mensaje = "Vehículo actualizado correctamente."
+        });
     }
 
 
@@ -43,7 +65,7 @@ public class VehiculoController : ControllerBase
         return Ok(lista);
     }
 
-
+//    [Authorize]
     [HttpGet("listarPaginas")]
     public async Task<IActionResult> ListarVehiculos([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
     {

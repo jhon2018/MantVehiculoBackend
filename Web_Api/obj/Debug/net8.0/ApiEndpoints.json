@@ -143,6 +143,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Web_Api.Controllers.MantenimientoController",
+    "Method": "Registrar",
+    "RelativePath": "api/Mantenimiento/registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Web_Api.DTOs.MantenimientoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_Api.Controllers.MantenimientoController",
+    "Method": "UploadFoto",
+    "RelativePath": "api/Mantenimiento/upload-foto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "foto",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Web_Api.Controllers.ProveedorController",
     "Method": "EditarProveedor",
     "RelativePath": "api/Proveedor/Actualizar",
@@ -267,7 +299,7 @@
   {
     "ContainingType": "Web_Api.Controllers.UsuarioController",
     "Method": "actualizarPassword",
-    "RelativePath": "api/Usuario/actualizarPassword",
+    "RelativePath": "api/Usuario/ActualizarPassword",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
@@ -299,7 +331,7 @@
   {
     "ContainingType": "Web_Api.Controllers.UsuarioController",
     "Method": "Eliminar",
-    "RelativePath": "api/Usuario/eliminar/{id_Usuario}",
+    "RelativePath": "api/Usuario/Eliminar/{id_Usuario}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -315,7 +347,7 @@
   {
     "ContainingType": "Web_Api.Controllers.UsuarioController",
     "Method": "ListarUsuarios",
-    "RelativePath": "api/Usuario/listar",
+    "RelativePath": "api/Usuario/Listar",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -325,8 +357,8 @@
   {
     "ContainingType": "Web_Api.Controllers.UsuarioController",
     "Method": "Registrar",
-    "RelativePath": "api/Usuario/Login",
-    "HttpMethod": "POST",
+    "RelativePath": "api/Usuario/Registrar",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [

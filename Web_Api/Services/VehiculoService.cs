@@ -38,7 +38,7 @@ public class VehiculoService
         if (vehiculoExistente == null)
             return false;
 
-        vehiculoExistente.placa = dto.placa;
+        //vehiculoExistente.placa = dto.placa;
         vehiculoExistente.marca = dto.marca;
         vehiculoExistente.modelo = dto.modelo;
         vehiculoExistente.fecha_compra = dto.fecha_compra.HasValue

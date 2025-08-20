@@ -30,6 +30,7 @@ builder.Services.AddScoped<ConductorService>();
 builder.Services.AddScoped<ConductorDAO>();
 builder.Services.AddScoped<ProveedorService>();
 builder.Services.AddScoped<ProveedorDAO>();
+builder.Services.AddScoped<MantenimientoService>();
 builder.Services.AddScoped<MantenimientoDAO>();
 builder.Services.AddScoped<TipoReparacionService>();
 builder.Services.AddScoped<TipoReparacionDAO>();
