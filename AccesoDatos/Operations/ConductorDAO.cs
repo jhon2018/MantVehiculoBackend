@@ -55,14 +55,16 @@ public class ConductorDAO
         return await context.Conductor.CountAsync();
     }
 
-    public async Task<List<Conductor>> ListarConductorPaginado(int page, int pageSize)
+    public async Task<List<Conductor>> ObtenerConductoresAsync()
     {
         return await context.Conductor
-            .OrderBy(v => v.id_Conductor)
-            .Skip((page - 1) * pageSize)
-            .Take(pageSize)
+            .Include(c => c.id_PersonalNavigation)
+                .ThenInclude(p => p.id_UsuarioNavigation)
             .ToListAsync();
     }
+
+
+
 
 
 

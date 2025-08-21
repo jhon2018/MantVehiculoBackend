@@ -15,4 +15,6 @@ public partial class Conductor
     public virtual ICollection<Mantenimiento> Mantenimiento { get; set; } = new List<Mantenimiento>();
 
     public virtual Personal? id_PersonalNavigation { get; set; }
+
+
 }

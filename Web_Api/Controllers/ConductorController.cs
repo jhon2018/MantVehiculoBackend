@@ -72,11 +72,12 @@ namespace Web_Api.Controllers
 
 
         [HttpGet("listar")]
-        public async Task<IActionResult> ListarConductores([FromQuery] int page = 1, [FromQuery] int pageSize = 20)
+        public async Task<IActionResult> ObtenerConductoresDTOAsync([FromQuery] int page = 1, [FromQuery] int pageSize = 20)
         {
-            var resultado = await _service.ListarConductorPaginado(page, pageSize);
+            var resultado = await _service.ObtenerConductoresDTOAsync(page, pageSize);
             return Ok(resultado);
         }
+
 
 
     }

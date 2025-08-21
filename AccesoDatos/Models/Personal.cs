@@ -21,4 +21,11 @@ public partial class Personal
     public virtual ICollection<Conductor> Conductor { get; set; } = new List<Conductor>();
 
     public virtual Usuario? id_UsuarioNavigation { get; set; }
+
+
+    // 🔹 Propiedad de navegación
+    //public Usuario Usuario { get; set; }
+
+    // 🔹 Relación inversa (si quieres)
+    //public ICollection<Conductor> Conductores { get; set; }
 }

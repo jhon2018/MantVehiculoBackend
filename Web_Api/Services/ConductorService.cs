@@ -60,27 +60,41 @@ public class ConductorService
     }
 
 
-    public async Task<ConductorListadoPaginadoDTO> ListarConductorPaginado(int page, int pageSize)
+    public async Task<PaginacionConductorDTO> ObtenerConductoresDTOAsync(int page, int pageSize)
     {
-        var total = await _ConductorDAO.ContarConductores();
-        var conductors = await _ConductorDAO.ListarConductorPaginado(page, pageSize);
+        var conductores = await _ConductorDAO.ObtenerConductoresAsync();
 
-        var listaDTO = conductors.Select(c => new ConductorListadoDTO
+        var total = conductores.Count;
+
+        var paginados = conductores
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .Select(c => new ConductorListadoDTO
+            {
+                id_Conductor = c.id_Conductor,
+                id_Personal = (int)c.id_Personal,
+                licencia = c.licencia,
+                nombre_completo = c.id_PersonalNavigation?.nombre_completo ?? string.Empty,
+                dni = c.id_PersonalNavigation?.dni ?? string.Empty,
+                telefono = c.id_PersonalNavigation?.telefono ?? string.Empty,
+                cargo = c.id_PersonalNavigation?.cargo ?? string.Empty,
+                correo = c.id_PersonalNavigation?.id_UsuarioNavigation?.correo ?? string.Empty,
+                activo = c.id_PersonalNavigation?.id_UsuarioNavigation?.activo ?? false
+            })
+            .ToList();
+
+        return new PaginacionConductorDTO
         {
-            id_Conductor = c.id_Conductor,
-            id_Personal = (int)c.id_Personal,
-            licencia = c.licencia
-
-        }).ToList();
-
-        return new ConductorListadoPaginadoDTO
-        {
-            totalRegistros = total,
-            paginaActual = page,
-            registrosPorPagina = pageSize,
-            conductor = listaDTO
+            TotalRegistros = total,
+            PaginaActual = page,
+            RegistrosPorPagina = pageSize,
+            Conductor = paginados
         };
     }
+
+
+
+
 
 
 

@@ -1072,24 +1072,24 @@
         "additionalProperties": false
       },
       "VehiculoEdicionDTO": {
+        "required": [
+          "fecha_compra",
+          "marca",
+          "modelo"
+        ],
         "type": "object",
         "properties": {
-          "placa": {
-            "type": "string",
-            "nullable": true
-          },
           "marca": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "modelo": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "fecha_compra": {
             "type": "string",
-            "format": "date-time",
-            "nullable": true
+            "format": "date-time"
           }
         },
         "additionalProperties": false

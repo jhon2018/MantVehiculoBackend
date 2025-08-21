@@ -43,7 +43,7 @@
   },
   {
     "ContainingType": "Web_Api.Controllers.ConductorController",
-    "Method": "ListarConductores",
+    "Method": "ObtenerConductoresDTOAsync",
     "RelativePath": "api/Conductor/listar",
     "HttpMethod": "GET",
     "IsController": true,
